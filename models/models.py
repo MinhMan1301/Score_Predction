@@ -8,6 +8,7 @@ from sklearn.pipeline import Pipeline
 from sklearn.impute import SimpleImputer
 from sklearn.compose import ColumnTransformer
 from sklearn.ensemble import RandomForestRegressor
+
 #2 Load datasets
 df = pd.read_csv("../data/data.csv")
 
@@ -33,7 +34,7 @@ y = df[target]
 xtrain, xtest, ytrain, ytest = train_test_split(x,y,test_size = 0.2, random_state = 42)
 
 
-#6 Encoding & Scaling & cleaning (Nominal and Ordinal)
+#6 Encoding & Scaling & cleaning (Nominal and Ordinal included)
 sleep_quality = ["poor","average","good"]
 facility_rating = ["low","medium","high"]
 exam_difficulty = ["easy","moderate","hard"]
@@ -75,6 +76,8 @@ score = reg.score(xtest, ytest)
 #9 Predict
 y_predict = reg.predict(xtest)
 
+#10 Evaluation
 #Comparision
 for a,b in zip(y_predict, ytest):
-    print("Predicted: {}, Actual: {}, Error: {}%".format(a,b,abs(((b-a)/a) * 100)))
+    print("Predicted: {}, Actual: {}, Error: {} %".format(a,b,abs(((b-a)/a) * 100)))
+
