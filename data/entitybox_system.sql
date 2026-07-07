@@ -6,14 +6,14 @@ CREATE TABLE STUDENT
 (
   student_id INT AUTO_INCREMENT,
   gender ENUM("male","female","other"),
-  age INT NOT NULL CHECK(age >= 150),
+  age INT NOT NULL CHECK(age <= 150),
   student_code INT NOT NULL,
   PRIMARY KEY (student_id)
 )AUTO_INCREMENT = 20001;
 
 CREATE TABLE COURSE
 (
-  score_exam FLOAT NOT NULL CHECK(score_exam <= 100),
+  score_exam FLOAT CHECK(score_exam <= 100),
   course_name ENUM("b.com","b.sc","b.tech","ba","bba","bca","diploma")  NOT NULL,
   difficulty ENUM("easy","hard","moderate") NOT NULL,
   course_id INT AUTO_INCREMENT,
